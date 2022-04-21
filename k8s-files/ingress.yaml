@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: alaska-manager
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+spec:
+  rules:
+    - host: https://5e73-2a0d-6fc2-5df0-bc00-7181-958e-c604-9a16.eu.ngrok.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: k8sbot
+              servicePort: 8080

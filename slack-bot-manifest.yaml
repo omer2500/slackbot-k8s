@@ -1,0 +1,32 @@
+display_information:
+  name: k8sbot
+features:
+  bot_user:
+    display_name: k8sbot
+    always_online: false
+  slash_commands:
+    - command: /getpods
+      url: https://7bba-34-195-103-114.ngrok.io/getpods
+      description: Get pods info from k8s cluster
+      usage_hint: namespace
+      should_escape: false
+    - command: /version
+      url: https://7bba-34-195-103-114.ngrok.io/version
+      description: Get version for a specific pod in specific namespace
+      usage_hint: nginx default
+      should_escape: false
+    - command: /getlogs
+      url: https://7bba-34-195-103-114.ngrok.io/getlogs
+      description: get logs of spcific pod with tail option
+      usage_hint: nginx-0 default 10
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - chat:write
+      - channels:history
+      - commands
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8sbot
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: k8sbot
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        component: k8sbot
+    spec:
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: internal-kubectl
+      containers:
+        - name: k8sbot
+          image: ''
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "100mb"
+              cpu: "50m"
+            requests:
+              memory: "100mb"
+              cpu: "50m"
+          envFrom:
+          - secretRef:
+              name: slack-tokens
+          ports:
+            - containerPort: 8026

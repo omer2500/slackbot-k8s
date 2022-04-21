@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8sbot
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    component: k8sbot
+  ports:
+    - port: 8080
+      targetPort: 8080
