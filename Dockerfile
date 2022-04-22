@@ -1,4 +1,6 @@
-FROM python:alpine3.15
+FROM python:3.8.13-alpine3.15
+
+ENV PYTHONPATH "${PYTHONPATH}:/src"
 
 # Install curl
 RUN apk add curl
@@ -7,12 +9,9 @@ RUN apk add curl
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
 # Add required files
-COPY bot.py /app/bot.py
-COPY requirements.txt /app/requirements.txt
+COPY ./ ./
 
 # Install requirements
-RUN pip install -r /app/requirements.txt
+RUN pip install -r /requirements.txt
 
-ENTRYPOINT [ "python" ]
-
-CMD [ "/app/bot.py" ]
+CMD ["gunicorn", "-w 1", "-b", "0.0.0.0:8080", "src.app:app"]

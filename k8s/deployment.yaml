@@ -22,17 +22,20 @@ spec:
       serviceAccountName: internal-kubectl
       containers:
         - name: k8sbot
-          image: ''
-          imagePullPolicy: Never
+          image: omer2500/k8sbot:latest
+          imagePullPolicy: Always
           resources:
             limits:
-              memory: "100mb"
+              memory: "100Mi"
               cpu: "50m"
             requests:
-              memory: "100mb"
+              memory: "100Mi"
               cpu: "50m"
+          env:
+           - name: ENV
+             value: production
           envFrom:
           - secretRef:
               name: slack-tokens
           ports:
-            - containerPort: 8026
+            - containerPort: 8080

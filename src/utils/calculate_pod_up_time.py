@@ -1,4 +1,4 @@
-def calculatePodUpTime(started_at, now):
+def calculate_pod_up_time(started_at, now):
     # returns a timedelta object
     diff = now - started_at
     res = "0m"

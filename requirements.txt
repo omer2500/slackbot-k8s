@@ -2,4 +2,7 @@ slackclient==2.9.3
 python-dotenv==0.20.0
 Flask==2.1.1
 slackeventsapi==3.0.1
-kubernetes==23.3.0 
+kubernetes==23.3.0
+gunicorn==20.1.0
+Flask-Limiter==2.4.5.1 
+flask-talisman==1.0.0 

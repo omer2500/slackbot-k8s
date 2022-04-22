@@ -20,7 +20,7 @@ In order to run the bot you should follow these steps:
 
 - Clone the repo
 - Create a slack bot app using the slack-bot-manifest.yaml file (file is optional)
-- Get the secrets you need you need in order to run the bot server and add them to the secret.yaml file inside k8s-files folder
+- Get the secrets you need you need in order to run the bot server and add them to the secret.yaml file inside k8s folder
 - Get a running k8s cluster
 - build the docker image of the bot-server
 - push the docker image to registry (optional)
@@ -37,12 +37,16 @@ In slack you can run these commands to use the bot
 
 List pods by namespace 
 
-/getlogs pod namespace tail
-List logs of pod by tail
-
 /version pod name
 List version of a pod
+
+/getlogs pod namespace tail
+List logs of pod by tail
 ```
+
+example of each command by order:
+
+![Drag Racing](example.png)
 
 ## Local Development
 
@@ -61,10 +65,17 @@ If you are using vscode you can just start debug session on bot.py file
 ## Local Development with docker 
 create a minikube cluster and expose it from you machine with ngrok
 
-## Support
+## Adding new commands
 
-Please [open an issue](https://github.com/fraction/readme-boilerplate/issues/new) for support.
+in order to add new command:
 
-## Contributing
+code:
 
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/fraction/readme-boilerplate/compare/).
+- add route and service function
+- inject the route to the app via init_routes function
+
+slack:
+
+- go to the commands page and add the new route you added
+
+

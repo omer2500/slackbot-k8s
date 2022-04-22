@@ -1,0 +1,6 @@
+.env
+.env*
+venv
+k8s
+README.md
+slack-bot-manifest.yaml
