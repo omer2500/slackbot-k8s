@@ -28,6 +28,15 @@ In order to run the bot you should follow these steps:
 
 Feel free to remove any sections that aren't applicable to your project.
 
+## Local Development
+
+### Env Variables
+
+### Env Variables
+
+| variable                        | type    | description                                                                    | default          |
+|---------------------------------|---------|--------------------------------------------------------------------------------|------------------|
+| SLACK_SIGN_TOKEN                        | string  | Sign token of the slackbot service                                                       | -                |
 
 ## Bot commands
 In slack you can run these commands to use the bot
