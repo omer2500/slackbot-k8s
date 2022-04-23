@@ -32,8 +32,6 @@ Feel free to remove any sections that aren't applicable to your project.
 
 ### Env Variables
 
-### Env Variables
-
 | variable                        | type    | description                                                                    | default          |
 |---------------------------------|---------|--------------------------------------------------------------------------------|------------------|
 | SLACK_SIGN_TOKEN                        | string  | Sign token of the slackbot service                                                       | -                |
