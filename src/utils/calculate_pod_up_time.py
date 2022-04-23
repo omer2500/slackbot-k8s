@@ -7,6 +7,8 @@ def calculate_pod_up_time(started_at, now):
     hours = days * 24 + seconds // 3600
     minutes = (diff.days*1440 + diff.seconds/60)
 
+    if hours> 24:
+        res = f"{days}d"
     if hours > 1 and hours <=24:
         res = f"{hours}h"
     if minutes > 1 and minutes < 60:
